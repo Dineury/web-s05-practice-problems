@@ -20,7 +20,8 @@
       })
       .then(planet => {
         console.log(planet)
-        // ENTER YOUR CODE HERE
+        const {name, diameter, rotation_period, rotation_around_sun} = planet
+        console.log(`${name} is a planet ${diameter} km in diameter, with a rotation period of ${rotation_period} hours, wich takes ${rotation_around_sun} to go around the sun`);
       })
 
     /*
@@ -29,16 +30,27 @@
     On success, print to the console a message of your liking using the data from the API.
     */
     const marsURL = 'https://webapis.bloomtechdev.com/planets/4'
-    // ENTER YOUR CODE HERE
-
+    fetch(marsURL)
+    .then(res => {
+      return res.json()
+    })
+    .then(mars => {
+      const {name, diameter, rotation_period, rotation_around_sun} = mars
+      console.log(`Welcome to the red dot => ${name}`);
+    })
     /*
     PROBLEM 3:
     Use fetch to obtain the data of all the planets using the `solarSystemURL`.
     On success loop over the planets, at each planet printing "<name> is number <id>" using the data from the API.
     */
     const solarSystemURL = 'https://webapis.bloomtechdev.com/planets'
-    // ENTER YOUR CODE HERE
-
+    fetch(solarSystemURL)
+    .then(res => { return res.json()})
+      .then(planets => {
+        planets.forEach(planet => {
+          console.log(`${planet.name} is number ${planet.id}`);
+        });
+      })
   </script>
 </body>
 

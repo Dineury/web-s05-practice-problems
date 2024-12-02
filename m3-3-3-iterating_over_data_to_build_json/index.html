@@ -21,8 +21,14 @@
       - Append the `li` to the `ul#problem1` element above using document.appendChild
       - See the unordered list of fruits rendering in the HTML!
     */
-    let fruits = ['apples', 'oranges', 'grapes']
-    //ENTER YOUR CODE HERE
+    let fruits = ['apples', 'oranges', 'grapes'];
+    
+    fruits.forEach((fruit) => {
+      const list = document.createElement('li');
+      list.textContent = fruit;
+      document.querySelector('#problem1').appendChild(list);
+
+    })
 
     /*
     PROBLEM 2:
@@ -38,7 +44,13 @@
       { text: 'About', href: '#about' },
       { text: 'Blog', href: '#blog' },
     ]
-    //ENTER YOUR CODE HERE
+    links.forEach((link) => {
+      const a = document.createElement('a');
+      a.textContent = link.text;
+      a.href = link.href;
+      document.querySelector('#problem2').appendChild(a);
+
+    })
 
     /*
     PROBLEM 3:
@@ -54,7 +66,13 @@
       { value: "SP", label: "Spanish" },
       { value: "FR", label: "French" },
     ]
-    //ENTER YOUR CODE HERE
+    languages.forEach((lang) => {
+      const option = document.createElement('option');
+      option.textContent = lang.label;
+      option.value = lang.value;
+      document.querySelector('#problem3').appendChild(option);
+
+    })
 
   </script>
 </body>

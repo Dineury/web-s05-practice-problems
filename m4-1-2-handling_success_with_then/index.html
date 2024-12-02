@@ -14,7 +14,9 @@
       // Do not worry about how this function works internally
       return Promise.resolve(`Hello, ${name}!`)
     }
-    // ENTER YOUR CODE HERE
+    greetAsync('anne').then(greet => {
+      console.log(greet);
+    })
 
     /*
     PROBLEM 2:
@@ -25,7 +27,13 @@
       // Do not worry about how this function works internally
       return Promise.resolve(!!Math.floor(Math.random() * 2))
     }
-    // ENTER YOUR CODE HERE
+    coinTossAsync().then(bool => {
+      if(bool === true){
+        console.log("It's heads!!");
+      } else 
+        console.log("It's tails!!");
+      
+    })
 
     /*
    PROBLEM 3:
@@ -37,7 +45,10 @@
       // Do not worry about how this function works internally
       return Promise.resolve(new Date().getFullYear())
     }
-    // ENTER YOUR CODE HERE
+    getYearAsync().then(year => {
+     console.log(`The Year is ${year}`);
+     console.log(`Im ${year - 2003} Years old`);
+    })
 
   </script>
 </body>

@@ -30,7 +30,8 @@
       rotation_around_sun: 10759,
     }
 
-    👉 Complete the `planetBuilder` function below. This function expects as its argument an object like the one above, and must return a <section> like the one below.
+    👉 Complete the `planetBuilder` function below. This function expects as its argument an object like the one above, 
+    and must return a <section> like the one below.
 
     <section class="planet">
       <h3>Saturn</h3>
@@ -41,20 +42,36 @@
       </div>
     </section>
 
-    👉 The function is being called at the bottom of the script, and if your code is correct, planets should render to the page looking like the `design.png` file in this project.
+    👉 The function is being called at the bottom of the script, and if your code is correct, 
+    planets should render to the page looking like the `design.png` file in this project.
     👉 The work can be subdivided into 5 sub problems which are noted inside the function.
     */
     function planetBuilder(data) {
       // PROBLEM 1: create the elements using `createElement`
+      const section = document.createElement('section');
+      const h3 = document.createElement('h3');
+      const divEl = document.createElement('div');
+      const p1 = document.createElement('p');
+      const p2 = document.createElement('p');
+      const p3 = document.createElement('p');
 
       // PROBLEM 2: establish the hierarchy/nesting of the elements using `appendChild`
+      divEl.appendChild(p1);
+      divEl.appendChild(p2);
+      divEl.appendChild(p3);
 
+      section.appendChild(h3);
+      section.appendChild(divEl);
+      
       // PROBLEM 3: add a class name "planet" to the section element using `classList`
-
+      section.classList.add('planet');
       // PROBLEM 4: add `textContent` to the heading and the paragraphs
-
+      h3.textContent = data.name;
+      p1.textContent = `Diameter: ${data.diameter} Km`
+      p2.textContent = `Rotaion: ${data.rotation_period} Hours`
+      p3.textContent = `Orbital Period: ${data.rotation_around_sun} Days`
       // PROBLEM 5: return the section from the function
-
+      return section
     }
 
     // ❗ Do not change the code below! It's there to test your function

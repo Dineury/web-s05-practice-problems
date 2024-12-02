@@ -18,7 +18,8 @@
     const planetURL = 'https://webapis.bloomtechdev.com/planets/2'
     axios.get(planetURL)
       .then(response => {
-        // ENTER YOUR CODE HERE
+        const {name, diameter, rotation_period, rotation_around_sun} = response.data
+        console.log(`${name} is a planet ${diameter} Km in diameter, with a rotation period of ${rotation_period} hours.`);
       })
 
     /*
@@ -27,7 +28,11 @@
     On success, print to the console "I am not sure Pluto is a planet!" (obtaining the word "Pluto" from inside the response data).
     */
     const baseURL = 'https://webapis.bloomtechdev.com/planets/'
-    // ENTER YOUR CODE HERE
+    axios.get(baseURL + '9')
+    .then(pluto => {
+      const {name, diameter, rotation_period, rotation_around_sun} = pluto.data
+      console.log(`I'm not sure ${name} is a planet!!`)
+    })
 
     /*
     PROBLEM 3:
@@ -37,8 +42,13 @@
     Also print to the console the contents of `error.response.data.message` (this is the actual error message from the server).
     */
     const badURL = 'https://webapis.bloomtechdev.com/planets/12345'
-    // ENTER YOUR CODE HERE
-
+    axios.get(badURL)
+    .then(badPlanet => {
+      console.log(`I'll never print`);
+    })
+      .catch(error => {
+        console.log(error);
+      })
   </script>
 </body>
 
